@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wizz.sentencelib.mapper.CollectionMapper">
+
+    <select id="findAllCollection" resultType="com.wizz.sentencelib.SelectResult.CollectionResult">
+        SELECT sid,collectedTime FROM tbl_collection order by collectedTime DESC
+    </select>
+    <resultMap id="testMap" type="com.wizz.sentencelib.SelectResult.ArticleWithUserResult">
+        <result column="collectedTime" property="dateTime"/>
+        <result column="sentence" property="sentence"/>
+        <result column="tag1" property="tag1"/>
+        <result column="tag2" property="tag2"/>
+        <result column="tag3" property="tag3"/>
+        <result column="tag4" property="tag4"/>
+        <result column="picture" property="picture"/>
+    </resultMap>
+    <select id="findTest" resultMap="testMap">
+        SELECT DATE_FORMAT(A.collectedTime,'%Y-%m-%d %H:%i:%s') as collectedTime,B.sentence,B.tag1,B.tag2,B.tag3,B.tag4,B.picture FROM tbl_collection A Left join tbl_sentence B on(A.sid=B.sid)  WHERE A.uid=#{uid}  ORDER BY A.collectedTime DESC
+    </select>
+</mapper>

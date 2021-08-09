@@ -1,0 +1,11 @@
+background:
+  appId:
+  appSecret:
+spring:
+  datasource:
+    driver-class-name:
+    username:
+    password:
+    url:
+#数据库基本配置
+

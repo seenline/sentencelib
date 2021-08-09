@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wizz.sentencelib.mapper.SentenceMapper">
+
+    <resultMap id="selectOutResultMap" type="com.wizz.sentencelib.SelectResult.ArticleOutUserResult">
+        <result column="sentence" property="sentence"/>
+        <result column="picture" property="picture"/>
+        <result column="tag1" property="tag1"/>
+        <result column="tag2" property="tag2"/>
+        <result column="tag3" property="tag3"/>
+        <result column="tag4" property="tag4"/>
+    </resultMap>
+    <select id="findPageListByHeat" resultMap="selectOutResultMap">
+        SELECT * from tbl_sentence  WHERE 1=1
+        <if test="tag1!=null">
+            AND tag1 = #{tag1}
+        </if>
+        <if test="tag2!=null">
+            AND tag2= #{tag2}
+        </if>
+        <if test="tag3!=null">
+            And tag3=#{tag3}
+        </if>
+        <if test="tag4!=null">
+            And tag4=#{tag4}
+        </if>
+        ORDER BY heat DESC
+    </select>
+    <resultMap id="findFriendsCollectionMap" type="com.wizz.sentencelib.SelectResult.CollectionRelationResult2">
+        <result column="picture" property="pic"/>
+    </resultMap>
+    <select id="selectFriendsCollection" resultMap="findFriendsCollectionMap">
+        SELECT B.picture FROM tbl_collection A LEFT JOIN tbl_sentence B ON(A.sid=B.sid)  WHERE A.uid=#{uid} ORDER BY A.collectedTime DESC LIMIT 3
+    </select>
+
+</mapper>

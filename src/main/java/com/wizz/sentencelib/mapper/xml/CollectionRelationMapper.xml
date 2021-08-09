@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wizz.sentencelib.mapper.CollectionRelationMapper">
+
+    <resultMap id="selectRelationMap" type="com.wizz.sentencelib.SelectResult.CollectionRelationResult1">
+        <result column="otherId" property="uid"/>
+        <result column="avatar" property="avatar"/>
+        <result column="username" property="username"/>
+    </resultMap>
+    <select id="selectRelation" resultMap="selectRelationMap">
+        SELECT A.otherId,C.avatar,C.username FROM tbl_collection_relation A LEFT JOIN tbl_collection B ON (A.otherId=B.uid)LEFT JOIN tbl_user C on(B.uid=C.uid) LEFT JOIN tbl_sentence D on(B.sid=D.sid)
+    </select>
+</mapper>
