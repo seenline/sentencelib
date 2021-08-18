@@ -8,14 +8,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-@Data
+/**
+ * @author seenline
+ * @data 2021/8/11 12:18
+ * @description
+ */
 @NoArgsConstructor
 @Accessors(chain = true)
-@TableName(value = "tbl_collection_relation")
-public class CollectionRelation {
+@TableName(value = "tbl_askinformation")
+@Data
+public class AskInformation {
     @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
+    @TableField(value = "uid")
     private String uid;
-    @TableField(value = "otherId")
-    private String otherId;
+    @TableField(value = "content")
+    private String content;
+    @TableField(value = "createtime")
+    private String createTime;
+
 }

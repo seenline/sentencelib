@@ -12,13 +12,13 @@
 - chore: 构建过程或辅助工具的变动
 - revert: 回滚了一些前面的代码
 
-
+by seenline
 
 
 
 本来这个项目应该git到另外一个仓库下，但是很奇怪mavenpackage打包的时候删掉了pom的一个插件（当时是爆红的，而且打包的jar不能在服务器上跑，所以我才删除了），之后跑springbootapplication和test都无法正常运行了，报的错是没有配置数据库。所以重新开了一个仓库，把原来的代码复制粘贴成功运行，蛮怪的 。
 
-原来部署jar到服务器的过程中，运行会报“Failed to get nested archive for entry BOOT-INF/lib/spring-kafka-2.2.7.RELEASE.jar”。windows命令行java -jar编译运行会报“没有主清单属性”。截止目前没有找到解决办法，插个眼看下一次能不能解决这个问题。windows命令行java -jar编译运行会报“没有主清单属性”。引入mavenplugin也不行
+原来部署jar到服务器的过程中，运行会报“Failed to get nested archive for entry BOOT-INF/lib/spring-kafka-2.2.7.RELEASE.jar”。windows命令行java -jar编译运行会报“没有主清单属性”。截止目前没有找到解决办法，插个眼看下一次能不能解决这个问题。引入mavenplugin也不行
 
 上面的所有问题都在我用idea重新初始化环境后解决了，而idea的自动spring init好像没有显式的引入mavenplugin但成功了，可能是别的依赖的缘故。因为只有初始化环境不是我做的，所以初始化环境很重要好吧。能用spring init就不要手动maven项目，现在服务器也能正常跑了（这个readme提醒自己初始化环境很重要，如果大多是自己写的建议自己配置）
 

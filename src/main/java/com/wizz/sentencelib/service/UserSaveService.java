@@ -1,9 +1,12 @@
 package com.wizz.sentencelib.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wizz.sentencelib.beans.User;
 import com.wizz.sentencelib.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author seenline
@@ -16,7 +19,11 @@ public class UserSaveService {
     private UserMapper userMapper;
     public void save(String uid,String avatar,String username)
     {
-        userMapper.insert(new User().setUid(uid).setAvatar(avatar).setUsername(username));
+        List<User> tmp=userMapper.selectList(new QueryWrapper<User>().eq("uid",uid));
+        if(!tmp.isEmpty())
+            userMapper.update(new User().setUsername(username).setAvatar(avatar).setUid(uid),new QueryWrapper<User>().eq("uid",uid));
+        else
+            userMapper.insert(new User().setUid(uid).setAvatar(avatar).setUsername(username));
     }
 
 }
