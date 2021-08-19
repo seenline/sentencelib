@@ -16,9 +16,9 @@ public class LoginController {
     private UserSaveService userSaveService;
 
     @RequestMapping("/login")
-    public JSONObject verify(@RequestParam(required = true) String code,
-                             @RequestParam(required = true) String uerName,
-                             @RequestParam(required = true) String avatar) {
+    public JSONObject verify(@RequestParam(name = "code",required = true) String code,
+                             @RequestParam(name = "userName",required = true) String uerName,
+                             @RequestParam(name = "avatar",required = true) String avatar) {
         new Get().getHttp(code);
         userSaveService.save(LoginUserInformation.OPENID, avatar, uerName);
         //userSave.test();

@@ -31,7 +31,6 @@ public class ArticleController {
         if(uid==null) {
             tmp= articleSelectService.outUser(page,tag1,tag2,tag3,tag4);
             articleResponse.getData().add(tmp);
-            System.out.println(articleSelectService.outUser(page, tag1, tag2, tag3, tag4));
         }
         else {
             tmp= articleSelectService.withUser(page,uid);
