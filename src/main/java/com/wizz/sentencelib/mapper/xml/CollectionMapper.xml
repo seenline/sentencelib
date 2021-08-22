@@ -13,8 +13,9 @@
         <result column="tag3" property="tag3"/>
         <result column="tag4" property="tag4"/>
         <result column="picture" property="picture"/>
+        <result column="sid" property="sid"/>
     </resultMap>
     <select id="findTest" resultMap="testMap">
-        SELECT DATE_FORMAT(A.collectedTime,'%Y-%m-%d %H:%i:%s') as collectedTime,B.sentence,B.tag1,B.tag2,B.tag3,B.tag4,B.picture FROM tbl_collection A Left join tbl_sentence B on(A.sid=B.sid)  WHERE A.uid=#{uid}  ORDER BY A.collectedTime DESC
+        SELECT DATE_FORMAT(A.collectedTime,'%Y-%m-%d %H:%i:%s') as collectedTime,B.sid,B.sentence,B.tag1,B.tag2,B.tag3,B.tag4,B.picture FROM tbl_collection A Left join tbl_sentence B on(A.sid=B.sid)  WHERE A.uid=#{uid}  ORDER BY A.collectedTime DESC
     </select>
 </mapper>

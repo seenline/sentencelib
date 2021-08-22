@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -28,43 +29,37 @@ public class ArticleSelectService {
     @Autowired
     private CollectionMapper collectionMapper;
 
-    public LinkedHashMap<String, Object> outUser(int page, String tag1, String tag2, String tag3, String tag4)
+    public LinkedList<Object> outUser(int page, String tag1, String tag2, String tag3, String tag4)
     {
         Page<Sentence>pageCondition=new Page<>();
         pageCondition.setSize(10);
         pageCondition.setCurrent(page);
         IPage<ArticleOutUserResult> resultPage=sentenceMapper.findPageListByHeat(pageCondition,new QueryWrapper<>(),tag1,tag2,tag3,tag4);
         List<ArticleOutUserResult>listResult=resultPage.getRecords();
-        LinkedHashMap<String,Object>returnResult=new LinkedHashMap<>();
-        int cnt=1;
+        LinkedList<Object>returnResult=new LinkedList<>();
         for (ArticleOutUserResult articleOutUserResult : listResult) {
             try {
-
-                returnResult.put("sentence"+cnt, Bean2Map.bean2map(articleOutUserResult));
+                returnResult.add(Bean2Map.bean2map(articleOutUserResult));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cnt++;
         }
         return returnResult;
     }
-    public LinkedHashMap<String, Object> withUser(int page,String uid)
+    public LinkedList<Object> withUser(int page,String uid)
     {
         Page<Collection>pageCondition=new Page<>();
         pageCondition.setSize(10);
         pageCondition.setCurrent(page);
         IPage<ArticleWithUserResult> resultPage=collectionMapper.findTest(pageCondition,uid);
         List<ArticleWithUserResult>listResult=resultPage.getRecords();
-        LinkedHashMap<String,Object>returnResult=new LinkedHashMap<>();
-        int cnt=1;
+        LinkedList<Object>returnResult=new LinkedList<>();
         for (ArticleWithUserResult articleWithUserResult : listResult) {
             try {
-
-                returnResult.put("sentence"+cnt, Bean2Map.bean2map(articleWithUserResult));
+                returnResult.add(Bean2Map.bean2map(articleWithUserResult));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cnt++;
         }
         return returnResult;
     }

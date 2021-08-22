@@ -16,7 +16,7 @@ public class RemoveService {
     @Autowired
     private HeatActService heatActService;
 
-    public boolean remove(String uid, int sid) {
+    public boolean remove(String uid, Integer sid) {
         List<Collection> list = collectionMapper.selectList(new QueryWrapper<Collection>().and(i -> i.eq("uid", uid).eq("sid", sid)));
         if (list.isEmpty())
             return false;

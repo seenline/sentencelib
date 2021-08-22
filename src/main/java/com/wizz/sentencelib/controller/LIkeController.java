@@ -14,7 +14,7 @@ public class LIkeController {
 
     @RequestMapping("/like")
     public CommonResponse like(@RequestParam(required = true) String uid,
-                               @RequestParam(required = true) int sid) {
+                               @RequestParam(required = true) Integer sid) {
         if (addService.add(uid, sid))
             return CommonResponse.SUCCESS;
         return CommonResponse.REPEAT;

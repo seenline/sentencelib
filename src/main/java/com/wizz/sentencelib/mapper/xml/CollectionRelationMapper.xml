@@ -6,8 +6,9 @@
         <result column="otherId" property="uid"/>
         <result column="avatar" property="avatar"/>
         <result column="username" property="username"/>
+        <result column="collectedTime" property="time"/>
     </resultMap>
     <select id="selectRelation" resultMap="selectRelationMap">
-        SELECT A.otherId,C.avatar,C.username FROM tbl_collection_relation A LEFT JOIN tbl_collection B ON (A.otherId=B.uid)LEFT JOIN tbl_user C on(B.uid=C.uid) LEFT JOIN tbl_sentence D on(B.sid=D.sid)
+        SELECT A.otherId,A.username,A.avatar,DATE_FORMAT(B.collectedTime,'%Y-%m-%d %H:%i:%s') as collectedTime FROM (SELECT A.otherId,B.username,B.avatar FROM tbl_collection_relation A LEFT JOIN tbl_user B on (A.otherId=B.uid) WHERE A.uid=#{uid} ) A LEFT JOIN (SELECT A.otherId,MAX(A.collectedTime) AS collectedTime FROM(SELECT A.otherId,B.collectedTime FROM tbl_collection_relation A LEFT JOIN tbl_collection B on(A.otherId=B.uid) LEFT JOIN tbl_sentence C on(B.sid=C.sid) WHERE A.uid=#{uid}) A GROUP BY A.otherId ) B on A.otherId=B.otherId
     </select>
 </mapper>

@@ -12,4 +12,5 @@ public class CollectionRelationResult1 {
     private String uid;
     private String username;
     private String avatar;
+    private String time;
 }

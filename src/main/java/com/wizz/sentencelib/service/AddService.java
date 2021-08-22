@@ -21,7 +21,7 @@ public class AddService {
     SimpleDateFormat temp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String simpleDate = temp.format(date);   //向数据库中放入当前具体时间，
 
-    public Boolean add(String uid, int sid) {
+    public Boolean add(String uid, Integer sid) {
         List<Collection> list = collectionMapper.selectList(new QueryWrapper<Collection>().and(i -> i.eq("uid", uid).eq("sid", sid)));
         if (!list.isEmpty())
             return false;

@@ -17,13 +17,13 @@ public class HeatActService {
     private SentenceMapper sentenceMapper;
 
     private Sentence sentence;
-    public void add(int sid)
+    public void add(Integer sid)
     {
         sentence=sentenceMapper.selectOne(new QueryWrapper<Sentence>().eq("sid",sid));
         sentence.setHeat(sentence.getHeat()+1);
         sentenceMapper.update(sentence,new QueryWrapper<Sentence>().eq("sid",sid));
     }
-    public void reduce(int sid)
+    public void reduce(Integer sid)
     {
         sentence=sentenceMapper.selectOne(new QueryWrapper<Sentence>().eq("sid",sid));
         sentence.setHeat(sentence.getHeat()-1);

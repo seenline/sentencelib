@@ -18,7 +18,7 @@ public class CopyAddHeatController {
     private HeatActService heatAct;
 
     @RequestMapping("/copy")
-    public CommonResponse copyAddHeat(@RequestParam(required = true) int sid)
+    public CommonResponse copyAddHeat(@RequestParam(value = "sid",required = true) Integer sid)
     {
         heatAct.add(sid);
         return CommonResponse.SUCCESS;

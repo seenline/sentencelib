@@ -9,6 +9,7 @@
         <result column="tag2" property="tag2"/>
         <result column="tag3" property="tag3"/>
         <result column="tag4" property="tag4"/>
+        <result column="sid" property="sid"/>
     </resultMap>
     <select id="findPageListByHeat" resultMap="selectOutResultMap">
         SELECT * from tbl_sentence  WHERE 1=1

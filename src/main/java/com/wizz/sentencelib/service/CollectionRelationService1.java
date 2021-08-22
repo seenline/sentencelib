@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,20 +20,13 @@ public class CollectionRelationService1 {
     @Autowired
     private CollectionRelationMapper collectionRelationMapper;
 
-    public LinkedHashMap<String,Object> collectionRelation(String uid)
+    public LinkedList<Object> collectionRelation(String uid)
     {
         List<CollectionRelationResult1>resultSelect=collectionRelationMapper.selectRelation(uid);
-        LinkedHashMap<String,Object>returnResult=new LinkedHashMap<>();
-        int cnt=1;
+        LinkedList<Object>returnResult=new LinkedList<>();
+
         for (CollectionRelationResult1 collectionRelationResult1 : resultSelect) {
-                try {
-
-                    returnResult.put("collectUser"+cnt, Bean2Map.bean2map(collectionRelationResult1));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                cnt++;
-
+               returnResult.add(collectionRelationResult1);
         }
         return returnResult;
     }

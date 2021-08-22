@@ -27,14 +27,11 @@ public class ArticleController {
                                     @RequestParam(required = false)String tag3,
                                     @RequestParam(required = false)String tag4){
         ArticleResponse articleResponse=new ArticleResponse();
-        LinkedHashMap<String,Object>tmp=new LinkedHashMap<>();
         if(uid==null) {
-            tmp= articleSelectService.outUser(page,tag1,tag2,tag3,tag4);
-            articleResponse.getData().add(tmp);
+            articleResponse.setData(articleSelectService.outUser(page,tag1,tag2,tag3,tag4));
         }
         else {
-            tmp= articleSelectService.withUser(page,uid);
-            articleResponse.getData().add(tmp);
+            articleResponse.setData(articleSelectService.withUser(page,uid));
         }
         articleResponse.setResponseCode("200");
         articleResponse.setMessage("成功");

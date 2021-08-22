@@ -14,7 +14,7 @@ public class UnlikeController {
 
     @RequestMapping("/unlike")
     public CommonResponse unlike(@RequestParam(required = true) String uid,
-                                 @RequestParam(required = true) int sid) {
+                                 @RequestParam(required = true) Integer sid) {
         if (removeService.remove(uid, sid))
             return CommonResponse.SUCCESS;
         return CommonResponse.NOTFIND;

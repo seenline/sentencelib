@@ -9,10 +9,12 @@ import lombok.Data;
  */
 @Data
 public class ArticleOutUserResult {
+    private Integer sid;
     private String sentence;
     private String picture;
     private String tag1;
     private String tag2;
     private String tag3;
     private String tag4;
+
 }

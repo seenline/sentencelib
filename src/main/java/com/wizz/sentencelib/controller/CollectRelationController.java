@@ -24,9 +24,7 @@ public class CollectRelationController {
     public RelationResponse getCollectionRelation(@RequestParam(required = true) String uid)
     {
         RelationResponse relationResponse =new RelationResponse();
-        LinkedHashMap<String,Object>tmp=new LinkedHashMap<>();
-        tmp= collectionRelationService1.collectionRelation(uid);
-        relationResponse.getData().push(tmp);
+        relationResponse.setData(collectionRelationService1.collectionRelation(uid));
         relationResponse.setResponseCode("200");
         relationResponse.setMessage("成功");
         System.out.println(relationResponse);

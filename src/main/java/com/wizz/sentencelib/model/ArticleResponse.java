@@ -14,5 +14,4 @@ public class ArticleResponse {
     private String responseCode;
     private String message;
     private LinkedList<Object> data= new LinkedList<>();
-
 }
