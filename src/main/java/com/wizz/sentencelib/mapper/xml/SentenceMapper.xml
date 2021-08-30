@@ -25,7 +25,7 @@
         <if test="tag4!=null">
             And tag4=#{tag4}
         </if>
-        ORDER BY heat DESC
+        ORDER BY heat DESC,sid
     </select>
     <resultMap id="findFriendsCollectionMap" type="com.wizz.sentencelib.SelectResult.CollectionRelationResult2">
         <result column="picture" property="pic"/>

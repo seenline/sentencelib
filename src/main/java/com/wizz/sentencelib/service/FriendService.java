@@ -14,7 +14,7 @@ import java.util.List;
  * @description
  */
 @Service
-public class AddFriendService {
+public class FriendService {
     @Autowired
     private CollectionRelationMapper collectionRelationMapper;
     public void add(String uid1,String uid2)
@@ -22,5 +22,9 @@ public class AddFriendService {
         CollectionRelation tmp=collectionRelationMapper.selectOne(new QueryWrapper<CollectionRelation>().and(i->i.eq("uid",uid1).eq("otherId",uid2)));
         if (tmp==null)
             collectionRelationMapper.insert(new CollectionRelation().setUid(uid1).setOtherId(uid2));
+    }
+    public void delete(String uid1,String uid2)
+    {
+        collectionRelationMapper.delete(new QueryWrapper<CollectionRelation>().and(i->i.eq("uid",uid1).eq("otherId",uid2)));
     }
 }

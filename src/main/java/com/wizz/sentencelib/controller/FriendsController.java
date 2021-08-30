@@ -1,7 +1,7 @@
 package com.wizz.sentencelib.controller;
 
 import com.wizz.sentencelib.model.CommonResponse;
-import com.wizz.sentencelib.service.AddFriendService;
+import com.wizz.sentencelib.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,15 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @description 用于添加好友
  */
 @RestController
-public class AddFriendsController {
+public class FriendsController {
     @Autowired
-    private AddFriendService addFriendService;
+    private FriendService friendService;
     
     @RequestMapping("/addfriends")
-    public CommonResponse addfriends(@RequestParam(required = true) String uid1,
+    public CommonResponse addFriends(@RequestParam(required = true) String uid1,
                                      @RequestParam(required = true) String uid2)
     {
-        addFriendService.add(uid1,uid2);
+        friendService.add(uid1,uid2);
+        return CommonResponse.SUCCESS;
+    }
+    @RequestMapping("/delfriends")
+    public CommonResponse delFriends(@RequestParam(required = true) String uid1,
+                                     @RequestParam(required = true) String uid2)
+    {
+        friendService.delete(uid1, uid2);
         return CommonResponse.SUCCESS;
     }
 }
