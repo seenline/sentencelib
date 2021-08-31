@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author seenline
- * @data 2021/8/9 11:32
+ * @date 2021/8/9 11:32
  * @description 这个接口和CollectionRelationController共用，因为原接口的设计的返回json过于复杂，和前端沟通后增加该接口完成需求
  */
 

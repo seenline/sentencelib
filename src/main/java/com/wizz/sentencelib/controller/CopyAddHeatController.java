@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author seenline
- * @data 2021/7/30 16:44
+ * @date 2021/7/30 16:44
  * @description 用于用户每次复制文案和图片都会增加句子的热度，加入收藏的热度添加方式写在LikeController中
  */
 @RestController

@@ -5,7 +5,7 @@ import lombok.experimental.Accessors;
 
 /**
  * @author seenline
- * @data 2021/7/27 17:17
+ * @date 2021/7/27 17:17
  * @description 存储交互得到的openid，session，unionid
  */
 

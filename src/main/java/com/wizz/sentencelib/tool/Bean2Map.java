@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  * @author seenline
- * @data 2021/8/5 13:24
+ * @date 2021/8/5 13:24
  * @description 将bean类转化为map
  */
 public class Bean2Map {

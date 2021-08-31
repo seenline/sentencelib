@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author seenline
- * @data 2021/8/11 12:20
+ * @date 2021/8/11 12:20
  * @description
  */
 @Mapper

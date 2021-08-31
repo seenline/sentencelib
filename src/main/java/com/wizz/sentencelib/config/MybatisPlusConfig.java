@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author seenline
- * @data 2021/7/29 18:35
+ * @date 2021/7/29 18:35
  * @description mybatis-plus分页拦截器
  */
 @Configuration

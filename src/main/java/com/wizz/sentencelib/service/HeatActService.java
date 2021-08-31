@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author seenline
- * @data 2021/7/30 17:20
+ * @date 2021/7/30 17:20
  * @description 用于复制文案图片和加入收藏、移除收藏的热度增加或减少
  */
 @Service

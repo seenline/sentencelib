@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 
 /**
  * @author seenline
- * @data 2021/8/8 18:15
+ * @date 2021/8/8 18:15
  * @description 获取用户的收藏文案馆（也就是用户的好友）
  */
 @RestController

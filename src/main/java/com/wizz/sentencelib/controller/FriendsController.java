@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author seenline
- * @data 2021/8/17 17:09
+ * @date 2021/8/17 17:09
  * @description 用于添加好友
  */
 @RestController

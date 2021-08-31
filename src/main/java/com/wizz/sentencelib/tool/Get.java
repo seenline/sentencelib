@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * @author seenline
- * @data 2021/7/27 17:17
+ * @date 2021/7/27 17:17
  * @description 向微信服务器发送请求获取用户openid, session_key, unionid
  */
 

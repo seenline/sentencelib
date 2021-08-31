@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author seenline
- * @data 2021/8/18 12:59
+ * @date 2021/8/18 12:59
  * @description
  */
 @RestController
